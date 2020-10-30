@@ -1,6 +1,3 @@
-#A01701879 María José Díaz Sánchez
-#A00829556 Santiago Gonzalez Irigoyen
-
 from random import *
 from turtle import *
 from freegames import path
@@ -54,6 +51,7 @@ def draw():
     goto(0, 0)
     shape(car)
     stamp()
+    #contar número de cuadrados cubiertos, empezando con 64
     d=64
 
     for count in range(64):
@@ -61,6 +59,8 @@ def draw():
             x, y = xy(count)
             square(x, y)
         else:
+            #cada vez que se encuentre un cuadrado destapado (se checan todos)
+            #se resta uno de 'd'
             d=d-1
 
     mark = state['mark']
@@ -71,15 +71,20 @@ def draw():
         jugar con la función goto, que es la que mueve el texto
         En este caso se cambio la posicion de x+18.82', y+12 que logro
         centrar mejor el número de los cuadros'''
-        
+
         x, y = xy(mark)
         up()
-        goto(x + 18.82, y + 12)
+        goto(x + 13.82, y + 6)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        lar = ['#','$','%','@','&']
+        if tiles[mark] < len(lar):
+            write(lar[tiles[mark]], font=('Arial', 30, 'normal'))
+        else:
+            write(tiles[mark], font=('Arial', 30, 'normal'))
 
     update()
     ontimer(draw, 100)
+    #cuando se detecten 0 cuadrados cubiertos se cierra el programa
     if d == 0:
         quit()
 
