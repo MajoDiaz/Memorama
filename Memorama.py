@@ -1,3 +1,6 @@
+#A01701879 María José Díaz Sánchez
+#A00829556 Santiago Gonzalez Irigoyen
+
 from random import *
 from turtle import *
 from freegames import path
@@ -6,6 +9,7 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
+##
 
 def square(x, y):
     "Draw white square with black outline at (x, y)."
@@ -45,11 +49,14 @@ def draw():
     goto(0, 0)
     shape(car)
     stamp()
+    d=64
 
     for count in range(64):
         if hide[count]:
             x, y = xy(count)
             square(x, y)
+        else:
+            d=d-1
 
     mark = state['mark']
 
@@ -62,6 +69,8 @@ def draw():
 
     update()
     ontimer(draw, 100)
+    if d == 0:
+        quit()
 
 shuffle(tiles)
 setup(420, 420, 370, 0)
