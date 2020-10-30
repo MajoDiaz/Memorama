@@ -4,7 +4,7 @@ from freegames import path
 
 #A01701879 María José Díaz Sánchez
 #A00829556 Santiago Gonzalez Irigoyen
-#Este código es un juego de tiro parabólico
+#Este código es un juego de memorama
 #30 de octubre de 2020
 
 '''Aquí se inicializa el contandor taps'''
