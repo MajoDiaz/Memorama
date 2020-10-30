@@ -5,6 +5,11 @@ from random import *
 from turtle import *
 from freegames import path
 
+#A01701879 María José Díaz Sánchez
+#A00829556 Santiago Gonzalez Irigoyen
+#Este código es un juego de tiro parabólico
+#30 de octubre de 2020
+
 car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
@@ -61,9 +66,15 @@ def draw():
     mark = state['mark']
 
     if mark is not None and hide[mark]:
+        '''Aquí se dibuja el número de cada uno de los cuadros'''
+        '''Para que los números aparezcan en el centro debemos de
+        jugar con la función goto, que es la que mueve el texto
+        En este caso se cambio la posicion de x+18.82', y+12 que logro
+        centrar mejor el número de los cuadros'''
+        
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+        goto(x + 18.82, y + 12)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
