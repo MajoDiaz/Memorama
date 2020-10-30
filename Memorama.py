@@ -7,6 +7,8 @@ from freegames import path
 #Este código es un juego de tiro parabólico
 #30 de octubre de 2020
 
+'''Aquí se inicializa el contandor taps'''
+taps = 0
 car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
@@ -43,6 +45,10 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+   ''' Se hace global la variable taps para evitar problemas y se le
+   suma un 1 por cada tap que haya '''
+   global taps
+   taps += 1
 
 def draw():
     "Draw image and tiles."
@@ -70,10 +76,17 @@ def draw():
         goto(x + 18.82, y + 12)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
-
+    
+    '''Aqui se ponen las insrticciones para que aparezca el contador
+    arriba a la derecha de la pantalla en letras azules'''
+    up()
+    color('blue')
+    goto(180,180)
+    write(taps)
     update()
     ontimer(draw, 100)
 
+#Aquí se genera el ambiente del juego
 shuffle(tiles)
 setup(420, 420, 370, 0)
 addshape(car)
