@@ -4,7 +4,7 @@ from freegames import path
 
 #A01701879 María José Díaz Sánchez
 #A00829556 Santiago Gonzalez Irigoyen
-#Este código es un juego de tiro parabólico
+#Este código es un juego de memorama
 #30 de octubre de 2020
 
 '''Aquí se genera el contador de taps inicializado
@@ -88,7 +88,7 @@ def draw():
             write(lar[tiles[mark]], font=('Arial', 30, 'normal'))
         else:
             write(tiles[mark], font=('Arial', 30, 'normal'))
-    
+
     '''Aquí se escribe el contador en el extremo superior derecho'''
     up()
     color('blue')
